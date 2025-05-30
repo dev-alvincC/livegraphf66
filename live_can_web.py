@@ -11,7 +11,7 @@ app.title = "Live CAN Viewer"
 
 # Layout of the web page
 app.layout = html.Div([
-    html.H2("CAN Live Viewer - Engine RPM (18ABE004)"),
+    html.H2("CAN Live Viewer)"),
     dcc.Upload(
         id='upload-data',
         children=html.Div(['📄 Drag & Drop or ', html.A('Select CAN Log File')]),
