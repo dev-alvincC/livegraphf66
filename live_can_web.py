@@ -9,7 +9,7 @@ import base64
 app = dash.Dash(__name__)
 app.title = "Live CAN Viewer"
 
-# Layout of the web page
+
 app.layout = html.Div([
     html.H2("CAN Live Viewer)"),
     dcc.Upload(
@@ -26,10 +26,10 @@ app.layout = html.Div([
     html.Div(id='hidden-data', style={'display': 'none'})
 ])
 
-# Global data holder
+
 parsed_data = []
 
-# Function to parse uploaded CAN dump
+
 def parse_can_txt(contents):
     global parsed_data
     parsed_data = []
@@ -54,7 +54,7 @@ def parse_can_txt(contents):
         except Exception:
             continue
 
-# Handle upload
+
 @app.callback(
     Output('interval-component', 'disabled'),
     Output('hidden-data', 'children'),
@@ -67,7 +67,7 @@ def handle_file_upload(contents, filename):
         return False, "ready"
     return True, ""
 
-# Update graph every second
+
 @app.callback(
     Output('live-graph', 'figure'),
     Input('interval-component', 'n_intervals'),
